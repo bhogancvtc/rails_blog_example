@@ -1,0 +1,10 @@
+<section class="comment">
+  <blockquote>
+    <%= comment.body %>
+  </blockquote>
+
+  <p class="author">
+    posted by <%= comment.author %>
+    on <%= link_to comment.created_at, [@post, comment] %>
+  </p>
+</section>

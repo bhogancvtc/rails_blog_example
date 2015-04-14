@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <header class="md-col-12">
+          <h1>Awesome Blog</h1>
+        </header>
+      </div>
+
+      <div class="row">
+        <div class="md-col-12">
+          <p id="notice"><%= notice %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <main class="md-col-12">
+          <%= yield %>
+        </main>
+      </div>
+
+    </div>
+
+  </body>
+</html>

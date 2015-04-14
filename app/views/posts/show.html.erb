@@ -1,0 +1,29 @@
+<article>
+  <%= render @post %>
+
+  <h2>Discussion about this post</h2>
+  <% if @post.comments.any? %>
+    <% @post.comments.each do |comment| %>
+      <section>
+        <!-- partial is in a different folder. Need to specify it
+        and pass in the variables the partial needs. -->
+        <%= render :partial=>"comments/comment", :locals => {:comment => comment} %>
+      </section>
+      <hr>
+    <% end %>
+
+  <% else %>
+
+    <p>No comments.</p>
+
+  <% end %>
+
+  <!-- link to /posts/:id/comments/new
+       "new" action of CommentsController -->
+  <%= link_to "Add comment", new_post_comment_path(@post) %>
+</article>
+<p>
+  <!-- link to /posts
+       "index" action of PostsController -->
+  <%= link_to "Back", posts_path %>
+</p>

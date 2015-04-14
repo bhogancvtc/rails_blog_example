@@ -1,0 +1,23 @@
+<h2>Comments for <%=@post.title %></h2>
+
+<% @post.comments.each do |comment| %>
+  <section>
+    <!-- partial is in a different folder. Need to specify it
+    and pass in the variables the partial needs. -->
+    <%= render :partial=>"comments/comment", :locals => {:comment => comment} %>
+    <!-- links to edit/delete -->
+    <p>
+      <!-- link to /admin/posts/:id/comments/:id/edit
+           "edit" action of Admin::CommentsController -->
+      <%= link_to "Edit", edit_admin_post_comment_path(@post, comment) %>
+      <!-- link to /admin/posts/:id/comment/:id
+          "delete" action of Admin::CommentsController -->
+      <%= link_to 'Destroy', [:admin, @post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  </section>
+
+<% end %>
+
+<p>
+  <%= link_to "Back", @post %>
+</p>

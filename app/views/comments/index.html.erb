@@ -1,0 +1,10 @@
+<h2>Comments for <%=@post.title %></h2>
+
+<%= render @comments %>
+
+<p>
+
+  <!-- link to /posts/:id
+       "show" action of PostsController -->
+  <%= link_to "Back", @post %>
+</p>

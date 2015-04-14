@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+  <article>
+    <%= render post %>
+
+    <footer>
+      <p>
+        <% if post.comments.any? %>
+          <%= post.comments.count %>
+          <%= post.comments.count > 1 ? "comments" : "comment" %>
+        <% else %>
+          No comments
+        <% end %>
+      </p>
+    </footer>
+  </article>
+<% end %>
+

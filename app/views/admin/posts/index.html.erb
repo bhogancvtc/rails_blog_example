@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <!-- link to /admin/posts/:id -->
+        <td><%= link_to post.title, [:admin, post] %></td>
+        <!-- link to /admin/posts/:id/edit  edit action of admin/posts-->
+        <td><%= link_to 'Edit', edit_admin_post_path(post) %></td>
+        <!-- link to /admin/posts/:id/   delete action of admin/posts -->
+        <td><%= link_to 'Destroy', [:admin, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<p>
+  <%= link_to 'New Post', new_admin_post_path, :class => "btn btn-primary" %>
+</p>

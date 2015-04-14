@@ -1,0 +1,9 @@
+<!-- partial is in a different folder. Need to specify it
+and pass in the variables the partial needs. -->
+<%= render :partial=>"comments/comment", :locals => {:comment => @comment} %>
+
+<p>
+  <!-- link to /admin/posts/:id/comments
+       "show" action of Admin::CommentsController -->
+  <%= link_to 'Back', admin_post_comments_path(@post) %>
+</p>
